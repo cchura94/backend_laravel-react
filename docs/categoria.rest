@@ -1,0 +1,45 @@
+GET http://127.0.0.1:8000/api/categoria
+Accept: application/json
+Authorization: Bearer 7|cbRuQsC8TN6iaTRCerCceoghQDlk87s0d4KQvfIQ
+
+### Guardar categoria
+POST http://127.0.0.1:8000/api/categoria
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 7|cbRuQsC8TN6iaTRCerCceoghQDlk87s0d4KQvfIQ
+
+{
+    "nombre": "MUEBLES de Madera",
+    "detalle": "Muebles para Oficinas"
+}
+
+### mostrar
+GET http://127.0.0.1:8000/api/categoria/4
+Accept: application/json
+Authorization: Bearer 7|cbRuQsC8TN6iaTRCerCceoghQDlk87s0d4KQvfIQ
+
+
+
+### modificar
+PUT http://127.0.0.1:8000/api/categoria/1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 7|cbRuQsC8TN6iaTRCerCceoghQDlk87s0d4KQvfIQ
+
+
+{
+    "nombre": "JUGUETES",
+    "detalle": "Juguetes para Niños"
+}
+
+### Eliminar
+DELETE http://127.0.0.1:8000/api/categoria/4
+Accept: application/json
+Authorization: Bearer 7|cbRuQsC8TN6iaTRCerCceoghQDlk87s0d4KQvfIQ
+
+
+### Busqueda categoria
+GET http://127.0.0.1:8000/api/categoria/busqueda?q=A
+Accept: application/json
+Authorization: Bearer 7|cbRuQsC8TN6iaTRCerCceoghQDlk87s0d4KQvfIQ
+

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoriaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,14 @@ Route::prefix("v1/auth")->group(function(){
         Route::post("salir", [AuthController::class, "funSalir"]);
     });
 });
+
+// buscar categoria
+
+Route::middleware('auth:sanctum')->group(function(){
+    
+    Route::get("categoria/busqueda", [CategoriaController::class, "buscarCategoria"]);
+    // CRUD API
+    Route::apiResource("categoria", CategoriaController::class);
+
+});
+
