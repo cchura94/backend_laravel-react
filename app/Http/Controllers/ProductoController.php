@@ -18,9 +18,10 @@ class ProductoController extends Controller
         if($buscar){
             $productos = Producto::orderBy('id', 'desc')
                                     ->where('nombre', 'like', "%$buscar%")
+                                    ->with("categoria")
                                     ->paginate($limite);    
         }else{
-            $productos = Producto::orderBy('id', 'desc')->paginate($limite);
+            $productos = Producto::orderBy('id', 'desc')->with("categoria")->paginate($limite);
         }
 
         return response()->json($productos);
@@ -41,6 +42,7 @@ class ProductoController extends Controller
         $producto->precio = $request->precio;
         $producto->stock = $request->stock;
         $producto->descripcion = $request->descripcion;
+        $producto->categoria_id = $request->categoria_id;
         $producto->save();
 
         return response()->json(["message" => "Producto Registrado"], 201);
