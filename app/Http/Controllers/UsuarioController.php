@@ -2,41 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class ClienteController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $clientes = Cliente::get();
+        $users = User::get();
 
-        return response()->json($clientes, 200);
+        return response()->json($users, 200);
     }
-
-    public function buscar(Request $request)
-    {
-        $cliente = Cliente::where("nombre_completo", "like", "%$request->q%")->first();
-        return response()->json($cliente, 200);
-    }
-
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $clie = new Cliente();
-        $clie->nombre_completo = $request->nombre_completo;
-        $clie->ci_nit = $request->ci_nit;
-        $clie->direccion = $request->direccion;
-        $clie->telefono = $request->telefono;
-        $clie->save();
-
-        return response()->json($clie, 201);
+        //
     }
 
     /**
